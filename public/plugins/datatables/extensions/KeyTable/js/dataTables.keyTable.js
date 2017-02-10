@@ -212,7 +212,7 @@ KeyTable = function ( oInit )
 	/*
 	 * Function: _fnEventAddTemplate
 	 * Purpose:  Create a function (with closure for sKey) event addition API
-	 * Returns:  function: - template function
+	 * Returns:  function: - layout function
 	 * Inputs:   string:sKey - type of event to detect
 	 */
 	function _fnEventAddTemplate( sKey )
@@ -253,7 +253,7 @@ KeyTable = function ( oInit )
 	/*
 	 * Function: _fnEventRemoveTemplate
 	 * Purpose:  Create a function (with closure for sKey) event removal API
-	 * Returns:  function: - template function
+	 * Returns:  function: - layout function
 	 * Inputs:   string:sKey - type of event to detect
 	 */
 	function _fnEventRemoveTemplate( sKey )
@@ -304,7 +304,7 @@ KeyTable = function ( oInit )
 		};
 	}
 
-	/* Use the template functions to add the event API functions */
+	/* Use the layout functions to add the event API functions */
 	for ( var sKey in _oaoEvents )
 	{
 		if ( sKey )
