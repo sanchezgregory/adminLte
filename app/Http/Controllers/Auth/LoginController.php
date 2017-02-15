@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,6 +20,12 @@ class LoginController extends Controller
     |
     */
 
+    protected $username = 'username';
+    protected $maxLoginAttempts = 3;
+    protected $lockOutTime = 300;
+    protected $redirectAfterLogout = '/login';
+    protected $redirectTo = '/home';
+
     use AuthenticatesUsers;
 
     /**
@@ -25,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
 
     /**
      * Create a new controller instance.
@@ -35,5 +43,26 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function username()
+    {
+        return property_exists($this, 'username') ? $this->username : 'email';
+    }
+
+    protected function credentials(Request $request)
+    {
+        return [
+            'username' => $request->get('username'),
+            'password' => $request->get('password'),
+            'active' => true,
+            //'registration_token' => null // verifica si ha activado la cuenta
+        ];
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 }

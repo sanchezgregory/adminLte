@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
   <!-- Ionicons -->
@@ -26,6 +28,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -38,8 +41,7 @@
     <div class="content-wrapper">
   <!-- /////////////////////////////////////////////////////////  Avisos del sistema  /////////////////////  -->
 
-      @if ('success') @include ('partials.success') @endif
-      @if ('error') @include ('partials.error') @endif
+
 
     <!--  ////////////////////////////////////////////////////// Fin aviso del sistema /////////////// -->
     <!-- Content Header (Page header) -->
@@ -47,7 +49,7 @@
 
       <h1>
         U.E.C Arquidiocesano
-        <small>Version 2.0</small>
+        <small>Version 1.0</small>
       </h1>
     </section>
 

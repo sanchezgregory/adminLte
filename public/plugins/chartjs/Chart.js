@@ -144,7 +144,7 @@
 			// String - Tooltip title font colour
 			tooltipTitleFontColor: "#fff",
 
-			// String - Tooltip title layout
+			// String - Tooltip title layouts
 			tooltipTitleTemplate: "<%= label%>",
 
 			// Number - pixel width of padding around tooltip text
@@ -489,7 +489,7 @@
 		//Javascript micro templating by John Resig - source at http://ejohn.org/blog/javascript-micro-templating/
 		template = helpers.template = function(templateString, valuesObject){
 
-			// If templateString is function rather than string-layout - call the function for valuesObject
+			// If templateString is function rather than string-layouts - call the function for valuesObject
 
 			if(templateString instanceof Function){
 			 	return templateString(valuesObject);
@@ -497,12 +497,12 @@
 
 			var cache = {};
 			function tmpl(str, data){
-				// Figure out if we're getting a layout, or if we need to
-				// load the layout - and be sure to cache the result.
+				// Figure out if we're getting a layouts, or if we need to
+				// load the layouts - and be sure to cache the result.
 				var fn = !/\W/.test(str) ?
 				cache[str] = cache[str] :
 
-				// Generate a reusable function that will serve as a layout
+				// Generate a reusable function that will serve as a layouts
 				// generator (and which will be cached).
 				new Function("obj",
 					"var p=[],print=function(){p.push.apply(p,arguments);};" +
@@ -510,7 +510,7 @@
 					// Introduce the data as local variables using with(){}
 					"with(obj){p.push('" +
 
-					// Convert the layout into pure JavaScript
+					// Convert the layouts into pure JavaScript
 					str
 						.replace(/[\r\t\n]/g, " ")
 						.split("<%").join("\t")
@@ -2287,7 +2287,7 @@
 		//Number - Spacing between data sets within X values
 		barDatasetSpacing : 1,
 
-		//String - A legend layout
+		//String - A legend layouts
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span class=\"<%=name.toLowerCase()%>-legend-icon\" style=\"background-color:<%=datasets[i].fillColor%>\"></span><span class=\"<%=name.toLowerCase()%>-legend-text\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
 
 	};
@@ -2587,7 +2587,7 @@
 		//Boolean - Whether we animate scaling the Doughnut from the centre
 		animateScale : false,
 
-		//String - A legend layout
+		//String - A legend layouts
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span class=\"<%=name.toLowerCase()%>-legend-icon\" style=\"background-color:<%=segments[i].fillColor%>\"></span><span class=\"<%=name.toLowerCase()%>-legend-text\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>"
 
 	};
@@ -2800,7 +2800,7 @@
 		//Boolean - Whether to fill the dataset with a colour
 		datasetFill : true,
 
-		//String - A legend layout
+		//String - A legend layouts
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span class=\"<%=name.toLowerCase()%>-legend-icon\" style=\"background-color:<%=datasets[i].strokeColor%>\"></span><span class=\"<%=name.toLowerCase()%>-legend-text\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>",
 
 		//Boolean - Whether to horizontally center the label and point dot inside the grid
@@ -3181,7 +3181,7 @@
 		//Boolean - Whether to animate scaling the chart from the centre
 		animateScale : false,
 
-		//String - A legend layout
+		//String - A legend layouts
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span class=\"<%=name.toLowerCase()%>-legend-icon\" style=\"background-color:<%=segments[i].fillColor%>\"></span><span class=\"<%=name.toLowerCase()%>-legend-text\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>"
 	};
 
@@ -3450,7 +3450,7 @@
 			//Boolean - Whether to fill the dataset with a colour
 			datasetFill : true,
 
-			//String - A legend layout
+			//String - A legend layouts
 			legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span class=\"<%=name.toLowerCase()%>-legend-icon\" style=\"background-color:<%=datasets[i].strokeColor%>\"></span><span class=\"<%=name.toLowerCase()%>-legend-text\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
 
 		},

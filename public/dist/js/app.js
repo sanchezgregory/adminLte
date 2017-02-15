@@ -19,9 +19,9 @@ if (typeof jQuery === "undefined") {
 /* AdminLTE
  *
  * @type Object
- * @description $.AdminLTE is the main object for the layout's app.
+ * @description $.AdminLTE is the main object for the layouts's app.
  *              It's used for implementing functions and options related
- *              to the layout. Keeping everything wrapped in an object
+ *              to the layouts. Keeping everything wrapped in an object
  *              prevents conflict with other plugins and is a better
  *              way to organize our code.
  */
@@ -47,10 +47,10 @@ $.AdminLTE.options = {
   sidebarToggleSelector: "[data-toggle='offcanvas']",
   //Activate sidebar push menu
   sidebarPushMenu: true,
-  //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
+  //Activate sidebar slimscroll if the fixed layouts is set (requires SlimScroll Plugin)
   sidebarSlimScroll: true,
   //Enable sidebar expand on hover effect for sidebar mini
-  //This option is forced to true if both the fixed layout and sidebar mini
+  //This option is forced to true if both the fixed layouts and sidebar mini
   //are used together
   sidebarExpandOnHover: false,
   //BoxRefresh Plugin
@@ -158,7 +158,7 @@ $(function () {
   //Set up the object
   _init();
 
-  //Activate the layout maker
+  //Activate the layouts maker
   $.AdminLTE.layout.activate();
 
   //Enable sidebar tree view controls
@@ -235,12 +235,12 @@ function _init() {
   'use strict';
   /* Layout
    * ======
-   * Fixes the layout height in case min-height fails.
+   * Fixes the layouts height in case min-height fails.
    *
    * @type Object
-   * @usage $.AdminLTE.layout.activate()
-   *        $.AdminLTE.layout.fix()
-   *        $.AdminLTE.layout.fixSidebar()
+   * @usage $.AdminLTE.layouts.activate()
+   *        $.AdminLTE.layouts.fix()
+   *        $.AdminLTE.layouts.fixSidebar()
    */
   $.AdminLTE.layout = {
     activate: function () {
@@ -254,8 +254,8 @@ function _init() {
       });
     },
     fix: function () {
-      // Remove overflow from .wrapper if layout-boxed exists
-      $(".layout-boxed > .wrapper").css('overflow', 'hidden');
+      // Remove overflow from .wrapper if layouts-boxed exists
+      $(".layouts-boxed > .wrapper").css('overflow', 'hidden');
       //Get window height and the wrapper height
       var footer_height = $('.main-footer').outerHeight() || 0;
       var neg = $('.main-header').outerHeight() + footer_height;
@@ -292,9 +292,9 @@ function _init() {
         }
         return;
       } else if (typeof $.fn.slimScroll == 'undefined' && window.console) {
-        window.console.error("Error: the fixed layout requires the slimscroll plugin!");
+        window.console.error("Error: the fixed layouts requires the slimscroll plugin!");
       }
-      //Enable slimscroll for fixed layout
+      //Enable slimscroll for fixed layouts
       if ($.AdminLTE.options.sidebarSlimScroll) {
         if (typeof $.fn.slimScroll != 'undefined') {
           //Destroy if it exists
@@ -408,8 +408,8 @@ function _init() {
           //Close the menu
           checkElement.slideUp(animationSpeed, function () {
             checkElement.removeClass('menu-open');
-            //Fix the layout in case the sidebar stretches over the height of the window
-            //_this.layout.fix();
+            //Fix the layouts in case the sidebar stretches over the height of the window
+            //_this.layouts.fix();
           });
           checkElement.parent("li").removeClass("active");
         }
@@ -430,7 +430,7 @@ function _init() {
             checkElement.addClass('menu-open');
             parent.find('li.active').removeClass('active');
             parent_li.addClass('active');
-            //Fix the layout in case the sidebar stretches over the height of the window
+            //Fix the layouts in case the sidebar stretches over the height of the window
             _this.layout.fix();
           });
         }
@@ -473,11 +473,11 @@ function _init() {
         }
       });
 
-      //If the body has a boxed layout, fix the sidebar bg position
+      //If the body has a boxed layouts, fix the sidebar bg position
       var bg = $(".control-sidebar-bg");
       _this._fix(bg);
 
-      //If the body has a fixed layout, make the control sidebar fixed
+      //If the body has a fixed layouts, make the control sidebar fixed
       if ($('body').hasClass('fixed')) {
         _this._fixForFixed(sidebar);
       } else {

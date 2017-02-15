@@ -1687,7 +1687,7 @@ if (typeof jQuery === 'undefined') {
     if (!this.$tip) {
       this.$tip = $(this.options.template)
       if (this.$tip.length != 1) {
-        throw new Error(this.type + ' `layout` option must consist of exactly 1 top-level element!')
+        throw new Error(this.type + ' `layouts` option must consist of exactly 1 top-level element!')
       }
     }
     return this.$tip
